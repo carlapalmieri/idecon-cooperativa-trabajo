@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 215 50% 23%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 215 25% 20%;
+
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 35 92% 50%;
+    --accent-foreground: 215 50% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 215 50% 23%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --navy: 215 50% 23%;
+    --navy-light: 215 40% 35%;
+    --navy-dark: 215 55% 15%;
+    --amber: 35 92% 50%;
+    --amber-light: 38 95% 60%;
+    --amber-dark: 32 90% 42%;
+    --slate: 215 15% 45%;
+    --cream: 40 30% 96%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 50% 23%) 0%, hsl(215 55% 15%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(35 92% 50%) 0%, hsl(32 90% 42%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 15% 95%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 15% / 0.1), 0 2px 4px -2px hsl(215 25% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 15% / 0.1), 0 4px 6px -4px hsl(215 25% 15% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(215 25% 15% / 0.1), 0 8px 10px -6px hsl(215 25% 15% / 0.1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 55% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 50% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 50% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 35 92% 50%;
+    --primary-foreground: 215 50% 15%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 35 92% 50%;
+    --accent-foreground: 215 50% 15%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 35 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-accent-gradient {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Elegant spark border effect - thin glowing line traveling around button */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.9), transparent);
+    animation: spark-top 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.9), transparent);
+    animation: spark-bottom 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  @keyframes spark-top {
+    0% {
+      left: -60%;
+    }
+    50%, 100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes spark-bottom {
+    0% {
+      right: -60%;
+    }
+    50%, 100% {
+      right: 100%;
+    }
+  }
+
+  /* WhatsApp button shine effect - circular elegant glow */
+  .btn-shine-round {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-shine-round::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 340deg,
+      hsl(0 0% 100% / 0.6) 350deg,
+      hsl(0 0% 100% / 0.9) 355deg,
+      hsl(0 0% 100% / 0.6) 360deg
+    );
+    animation: rotate-glow 2s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .btn-shine-round::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 9999px;
+    background: #25D366;
+    z-index: -1;
+  }
+
+  @keyframes rotate-glow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
