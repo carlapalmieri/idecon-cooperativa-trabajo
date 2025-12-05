@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, CheckCircle, ArrowDown } from "lucide-react";
+import { CheckCircle, ArrowDown } from "lucide-react";
+import { WhatsappIcon } from "./WhatsappIcon";
 
 const WHATSAPP_NUMBER = "5491122883051";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20consultar%20por%20los%20servicios%20de%20IDECON.`;
@@ -58,7 +59,7 @@ export const Hero = () => {
             </Button>
             <Button variant="heroOutline" size="xl" asChild className="btn-shine">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5" />
+                <WhatsappIcon size={22} />
                 Hablar con IDECON
               </a>
             </Button>

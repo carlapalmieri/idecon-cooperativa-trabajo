@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Users, Wrench, Building, MessageCircle, ChevronRight } from "lucide-react";
+import { Users, Wrench, Building, ChevronRight } from "lucide-react";
+import { WhatsappIcon } from "./WhatsappIcon";
 
 const WHATSAPP_NUMBER = "5491122883051";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20consultar%20por%20los%20servicios%20de%20IDECON.`;
@@ -84,7 +85,7 @@ export const Servicios = () => {
         <div className="text-center">
           <Button variant="accent" size="lg" asChild className="btn-shine">
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5" />
+              <WhatsappIcon size={22} />
               Consultar por servicios
             </a>
           </Button>

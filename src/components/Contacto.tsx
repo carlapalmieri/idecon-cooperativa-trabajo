@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Clock, MessageCircle, Send } from "lucide-react";
+import { MapPin, Phone, Clock, MessageCircle } from "lucide-react";
+import { WhatsappIcon } from "./WhatsappIcon";
 
 const WHATSAPP_NUMBER = "5491122883051";
 
@@ -188,7 +189,7 @@ export const Contacto = () => {
               </div>
 
               <Button variant="accent" size="lg" type="submit" className="w-full btn-shine">
-                <Send className="w-5 h-5" />
+                <WhatsappIcon size={22} />
                 Enviar por WhatsApp
               </Button>
             </form>

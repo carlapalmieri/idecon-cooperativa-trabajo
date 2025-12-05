@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { WhatsappIcon } from "./WhatsappIcon";
+import { cn } from "@/lib/utils";
 
 const WHATSAPP_NUMBER = "5491122883051";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20consultar%20por%20los%20servicios%20de%20IDECON.`;
@@ -29,7 +31,7 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-elegant py-3"
+          ? "bg-card backdrop-blur-md shadow-elegant py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -40,7 +42,8 @@ export const Navbar = () => {
               isScrolled ? "text-primary" : "text-primary-foreground"
             }`}
           >
-            IDECON
+             <img src="/idecon-logo-dark.webp" alt="IDECON" className={cn("h-8 w-auto", isScrolled ? "opacity-0 transition-opacity duration-300" : "opacity-100")} />
+             <img src="/idecon-logo-light.webp" alt="IDECON" className={cn("h-8 w-auto -mt-8", isScrolled ? "opacity-100" : "opacity-0 transition-opacity duration-300")} />
           </span>
         </a>
 
@@ -59,7 +62,7 @@ export const Navbar = () => {
           ))}
           <Button variant="accent" size="default" asChild>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-4 h-4" />
+              <WhatsappIcon className="w-4 h-4" size={20} />
               Contactar
             </a>
           </Button>
@@ -92,7 +95,7 @@ export const Navbar = () => {
             ))}
             <Button variant="accent" size="lg" asChild className="mt-2">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-4 h-4" />
+                <WhatsappIcon className="w-4 h-4" size={20} />
                 Contactar
               </a>
             </Button>

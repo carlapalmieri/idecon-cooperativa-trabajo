@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { WhatsappIcon } from "./WhatsappIcon";
 
 const WHATSAPP_NUMBER = "5491122883051";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20me%20gustaría%20consultar%20por%20los%20servicios%20de%20IDECON.`;
@@ -23,7 +23,7 @@ export const CTAFinal = () => {
           </p>
           <Button variant="hero" size="xl" asChild className="btn-shine">
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-6 h-6" />
+              <WhatsappIcon className="w-6 h-6" />
               Enviar mensaje por WhatsApp
             </a>
           </Button>

@@ -2,12 +2,12 @@ import { Phone, MapPin } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-navy-dark text-primary-foreground py-12">
+    <footer className="bg-navy text-primary-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8 max-w-4xl mx-auto text-center md:text-left">
           {/* Logo & Description */}
           <div>
-            <h3 className="font-display text-2xl font-bold mb-4">IDECON</h3>
+          <img src="/idecon-logo-dark.webp" alt="IDECON" className="h-8 w-auto" />
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               Cooperativa de Trabajo Ltda.
               <br />
